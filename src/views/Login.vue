@@ -32,12 +32,11 @@ export default {
     methods: {
         handleSubmit () {
             if (this.loginInfoForm.email === 'zhangmin@abc.com' && this.loginInfoForm.password === '123456') {
-                this.$router.push('/about')
+                this.$router.push('/about');
             }
         },
         handleRegist () {
-            this.loginInfoForm.email = ''
-            this.loginInfoForm.password = ''
+            this.$router.push('/register');
         }
     }
 }
