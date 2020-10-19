@@ -17,7 +17,7 @@
         <el-menu-item index="5">个人中心</el-menu-item>
       </el-menu>
       <div class="right">
-        111111111111111111111
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -32,7 +32,24 @@ export default {
         }
     },
     methods: {
-        handleSelect () {
+        handleSelect (key, keyPath) {
+            switch (key) {
+            case '1':
+                this.$router.push('/platform');
+                break;
+            case '2':
+                this.$router.push('/analysis')
+                break;
+            case '3':
+                this.$router.push('/message')
+                break;
+            case '4':
+                this.$router.push('/order')
+                break;
+            case '5':
+                this.$router.push('/personal')
+                break;
+            }
         }
     }
 }
