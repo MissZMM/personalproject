@@ -31,9 +31,10 @@ export default {
     },
     methods: {
         handleSubmit () {
-            if (this.loginInfoForm.email === 'zhangmin@abc.com' && this.loginInfoForm.password === '123456') {
-                this.$router.push('/about');
-            }
+            // if (this.loginInfoForm.email === 'zhangmin@abc.com' && this.loginInfoForm.password === '123456') {
+            //     this.$router.push('/about');
+            // }
+            this.$axios({ method: 'get', url: '/user/login', params: this.loginInfoForm }).then(res => console.log(res)).catch(err => console.log(err))
         },
         handleRegist () {
             this.$router.push('/register');
