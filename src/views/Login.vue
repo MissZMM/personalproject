@@ -31,10 +31,18 @@ export default {
     },
     methods: {
         handleSubmit () {
-            // if (this.loginInfoForm.email === 'zhangmin@abc.com' && this.loginInfoForm.password === '123456') {
-            //     this.$router.push('/about');
-            // }
-            this.$axios({ method: 'get', url: '/user/login', params: this.loginInfoForm }).then(res => console.log(res)).catch(err => console.log(err))
+            this.$axios({ method: 'get', url: '/user/login', params: this.loginInfoForm }).then(res => {
+                const token = res.data.token;
+                console.log(res)
+                if (res.data.mess === 'ok') {
+                    this.$store.commit('lodingToken', token);
+                    this.$store.commit('loadingUserInfo', { userName: res.data.userName, email: res.data.email, phone: res.data.phone })
+                    this.$router.push('/about');
+                    console.log(this.$store.state.userName)
+                }
+            }).catch(err => {
+                console.log(err)
+            })
         },
         handleRegist () {
             this.$router.push('/register');

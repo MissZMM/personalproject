@@ -5,7 +5,7 @@
         <div class="loginInfo">
             <el-dropdown class="drop">
                 <span class="el-dropdown-link">
-                  欢迎你， 张敏<i class="el-icon-arrow-down el-icon--right"></i>
+                  欢迎你， {{ $store.state.userInfo.userName }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item>退出登录</el-dropdown-item>
