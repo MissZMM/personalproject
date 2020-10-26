@@ -33,7 +33,6 @@ export default {
         handleSubmit () {
             this.$axios({ method: 'post', url: '/user/login', params: this.loginInfoForm }).then(res => {
                 const token = res.headers.authorization;
-                console.log(res)
                 if (res.status === 200) {
                     this.$store.commit('lodingToken', token);
                     this.$store.commit('loadingUserInfo', { userName: res.data.userName, email: res.data.email, phone: res.data.phone })
