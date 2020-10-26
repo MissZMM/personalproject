@@ -103,20 +103,32 @@ export default {
     },
     methods: {
         handleRegist () {
-            this.$refs.userInfoFormRef.validate(valid => {
+            this.$refs.userInfoFormRef.validate(async valid => {
                 if (!valid) return;
-                this.$axios({
-                    method: 'post',
-                    url: '/user/register',
-                    params: {
-                        userName: this.userInfoForm.userName,
-                        email: this.userInfoForm.email,
-                        phone: this.userInfoForm.phone,
-                        password: this.userInfoForm.password
-                    }
-                }).then(res => {
-                    console.log(res)
-                });
+                try {
+                    await this.$axios({
+                        method: 'post',
+                        url: '/user/register',
+                        params: {
+                            userName: this.userInfoForm.userName,
+                            email: this.userInfoForm.email,
+                            phone: this.userInfoForm.phone,
+                            password: this.userInfoForm.password
+                        }
+                    });
+                    return this.$message({
+                        type: 'success',
+                        message: '注册成功，正在跳转到登录页面...',
+                        onClose: () => {
+                            this.$router.push('/login');
+                        }
+                    })
+                } catch (e) {
+                    return this.$message({
+                        type: 'error',
+                        message: '注册失败！'
+                    })
+                }
             });
         }
     }
