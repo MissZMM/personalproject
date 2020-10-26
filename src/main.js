@@ -20,9 +20,11 @@ const store = new Vuex.Store({
     mutations: {
         lodingToken (state, token) {
             state.token += token;
+            localStorage.setItem('token', token)
         },
         loadingUserInfo (state, userInfo) {
             state.userInfo = userInfo;
+            localStorage.setItem('userName', userInfo.userName)
         }
     }
 });

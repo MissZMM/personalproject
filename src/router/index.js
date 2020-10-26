@@ -9,7 +9,10 @@ import Message from '../views/pages/message/message'
 import Analysis from '../views/pages/analysis/analysis'
 
 Vue.use(VueRouter)
-
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (location) {
+    return originalPush.call(this, location).catch(err => err)
+}
 const routes = [{
     path: '/',
     redirect: '/login'

@@ -10,7 +10,7 @@
             <el-input v-model="loginInfoForm.password" type="password"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="handleSubmit">提交</el-button>
+            <el-button type="primary" @click="handleSubmit">登录</el-button>
             <el-button @click="handleRegist">注册</el-button>
           </el-form-item>
         </el-form>
@@ -31,17 +31,23 @@ export default {
     },
     methods: {
         handleSubmit () {
-            this.$axios({ method: 'get', url: '/user/login', params: this.loginInfoForm }).then(res => {
-                const token = res.data.token;
+            this.$axios({ method: 'post', url: '/user/login', params: this.loginInfoForm }).then(res => {
+                const token = res.headers.authorization;
                 console.log(res)
-                if (res.data.mess === 'ok') {
+                if (res.status === 200) {
                     this.$store.commit('lodingToken', token);
                     this.$store.commit('loadingUserInfo', { userName: res.data.userName, email: res.data.email, phone: res.data.phone })
                     this.$router.push('/about');
-                    console.log(this.$store.state.userName)
+                    return this.$message({
+                        message: '登录成功',
+                        type: 'success'
+                    })
                 }
-            }).catch(err => {
-                console.log(err)
+            }).catch(() => {
+                return this.$message({
+                    message: '用户名或密码错误',
+                    type: 'error'
+                })
             })
         },
         handleRegist () {
@@ -61,7 +67,7 @@ export default {
     .loginBox {
         width: 500px;
         height: 300px;
-        background-color: #EEFFCC;
+        background-color: #eeeeee;
         border-radius: 8px;
         box-sizing: border-box;
         padding: 16px;

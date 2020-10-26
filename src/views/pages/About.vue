@@ -3,12 +3,12 @@
     <div class="header">
         <div class="title">图像超分辨率</div>
         <div class="loginInfo">
-            <el-dropdown class="drop">
+            <el-dropdown class="drop" @command="handleCommand">
                 <span class="el-dropdown-link">
-                  欢迎你， {{ $store.state.userInfo.userName }}<i class="el-icon-arrow-down el-icon--right"></i>
+                  欢迎你， {{ getUserName }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item>退出登录</el-dropdown-item>
+                  <el-dropdown-item command="logout">退出登录</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
@@ -43,6 +43,11 @@ export default {
             activeIndex: '1'
         }
     },
+    computed: {
+        getUserName () {
+            return localStorage.getItem('userName');
+        }
+    },
     methods: {
         handleSelect (key, keyPath) {
             switch (key) {
@@ -60,6 +65,15 @@ export default {
                 break;
             case '5':
                 this.$router.push('/personal')
+                break;
+            }
+        },
+        handleCommand (command) {
+            switch (command) {
+            case 'logout':
+                this.$router.push('/login');
+                localStorage.removeItem('userName');
+                localStorage.removeItem('token')
                 break;
             }
         }
