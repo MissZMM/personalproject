@@ -102,7 +102,7 @@ export default {
           width: calc(100% - 200px);
           height: 40px;
           line-height: 40px;
-          background-color: rgba(242, 237, 248, 0.3);
+          background-color: rgba(242, 220, 248, 0.5);
           .drop {
               position: absolute;
               right: 10px;
@@ -127,6 +127,8 @@ export default {
     .right {
       width: calc(100% - 200px);
       flex: 1;
+      box-sizing: border-box;
+      padding: 10px;
     }
   }
 }
