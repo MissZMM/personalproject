@@ -2,10 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/register/Register'
-import Platform from '../views/pages/platform/Platform'
+import Train from '../views/pages/train/Train'
 import Personal from '../views/pages/personal/personal'
-import Order from '../views/pages/order/order'
-import Message from '../views/pages/message/message'
+import Image from '../views/pages/data/Image'
+import Model from '../views/pages/data/model'
+import Recycle from '../views/pages/data/recycle'
+import Reconstruction from '../views/pages/reconstruction/Reconstruction'
 import Analysis from '../views/pages/analysis/analysis'
 
 Vue.use(VueRouter)
@@ -34,31 +36,42 @@ const routes = [{
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/pages/About.vue'),
-    redirect: '/platform',
+    redirect: '/analysis',
     children: [{
-        path: '/platform',
-        name: 'Platform',
-        component: Platform
-    },
-    {
-        path: '/personal',
-        name: 'Personal',
-        component: Personal
-    },
-    {
         path: '/analysis',
         name: 'Analysis',
         component: Analysis
     },
     {
-        path: '/message',
-        name: 'Message',
-        component: Message
+        path: '/train',
+        name: 'Train',
+        component: Train
+    },
+
+    {
+        path: '/reconstruction',
+        name: 'Reconstruction',
+        component: Reconstruction
     },
     {
-        path: '/order',
-        name: 'Order',
-        component: Order
+        path: '/image',
+        name: 'Image',
+        component: Image
+    },
+    {
+        path: '/model',
+        name: 'Model',
+        component: Model
+    },
+    {
+        path: '/recycle',
+        name: 'Recycle',
+        component: Recycle
+    },
+    {
+        path: '/personal',
+        name: 'Personal',
+        component: Personal
     }]
 }]
 

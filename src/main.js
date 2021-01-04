@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import ElementUI from 'element-ui'
+
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 import Vuex from 'vuex'
@@ -24,7 +25,8 @@ const store = new Vuex.Store({
         },
         loadingUserInfo (state, userInfo) {
             state.userInfo = userInfo;
-            localStorage.setItem('userName', userInfo.userName)
+            localStorage.setItem('userName', userInfo.userName);
+            localStorage.setItem('email', userInfo.email)
         }
     }
 });

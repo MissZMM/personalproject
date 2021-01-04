@@ -1,10 +1,10 @@
 <template>
-  <div>4</div>
+    <div>recycle</div>
 </template>
 
 <script>
 export default {
-    name: 'order'
+    name: 'Recycle'
 }
 </script>
 
