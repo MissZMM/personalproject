@@ -92,6 +92,7 @@ export default {
         display: flex;
         flex-direction: column;
         width: 500px;
+        height: 450px;
         padding-top: 20px;
         span {
           display: inline-block;

@@ -111,7 +111,7 @@ export default {
 .about {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 1000px;
   background-color: #edf2f9;
   margin: 0 auto;
   .content {
