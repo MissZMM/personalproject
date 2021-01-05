@@ -23,6 +23,10 @@
           <el-input v-if="handle" v-model="userInfoForm.phone" placeholder="请输入手机号"></el-input>
           <span v-else>{{phone}}</span>
         </el-form-item>
+        <el-form-item label="本地路径" prop="phone">
+          <el-input v-if="handle" v-model="userInfoForm.path" placeholder="请输入本地路径"></el-input>
+          <span v-else>{{path}}</span>
+        </el-form-item>
       </el-form>
       <div class="buttonPosition">
         <el-button type="primary" @click="handleForm" >修改</el-button>
@@ -43,7 +47,8 @@ export default {
             birth: '',
             sex: '',
             phone: '',
-            handle: 0
+            handle: 0,
+            path: 'D:\\models'
         }
     },
     mounted () {

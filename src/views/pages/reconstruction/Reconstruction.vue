@@ -277,11 +277,7 @@ export default {
             color: skyblue;
           }
         }
-        /*.step:active {*/
-        /*  border: 1px solid skyblue;*/
-        /*}*/
         .step-text {
-
         }
       }
       .line {

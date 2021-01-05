@@ -2,34 +2,34 @@
   <div class="train">
     <div class="option">
       <div id="step-1">
-        <h4>数据集选择</h4>
-      </div>
-      <div id="step-2">
         <h4>参数设置</h4>
         <el-card class="box-card">
-          <div v-for="o in 4" :key="o" class="text item">
-            {{'列表内容 ' + o }}
-          </div>
+          <el-form ref="form" :model="form" label-width="90px">
+            <el-form-item label="任务名称">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item label="放大倍数">
+              <el-radio-group v-model="form.scale">
+                <el-radio :label="2">2</el-radio>
+                <el-radio :label="3">3</el-radio>
+                <el-radio :label="4">4</el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="模型压缩">
+              <el-switch v-model="form.compress"></el-switch>
+            </el-form-item>
+            <el-form-item label="学习率">
+              <el-input v-model="form.rate"></el-input>
+            </el-form-item>
+            <el-form-item label="数据集选择">
+              <el-input v-model="form.desc"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">训练</el-button>
+              <el-button>重置</el-button>
+            </el-form-item>
+          </el-form>
         </el-card>
-      </div>
-      <div id="step-3">
-        <h4>模型训练</h4>
-      </div>
-    </div>
-    <div class="steps">
-      <div class="step-content">
-        <div class="step-1 step"><a href="#step-1">1</a></div>
-        <div class="step-text">数据集选择</div>
-      </div>
-      <div class="line"></div>
-      <div class="step-content">
-        <div class="step-2 step"><a href="#step-2">2</a></div>
-        <div class="step-text">参数设置</div>
-      </div>
-      <div class="line"></div>
-      <div class="step-content">
-        <div class="step-3 step"><a href="#step-3">3</a></div>
-        <div class="step-text">模型训练</div>
       </div>
     </div>
   </div>
@@ -37,7 +37,17 @@
 
 <script>
 export default {
-    name: 'Reconstruction'
+    name: 'Reconstruction',
+    data () {
+        return {
+            form: {
+                name: '',
+                scale: '2',
+                compress: false,
+                rate: ''
+            }
+        }
+    }
 }
 </script>
 
@@ -46,7 +56,6 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  margin-top: 16px;
   display: flex;
   .option {
     flex: 1;
@@ -55,16 +64,23 @@ export default {
     align-items: flex-start;
     #step-1 {
     }
-    #step-2 {
+    #step-1 {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       margin-top: 16px;
       .box-card {
-        width: 400px;
+        width: 600px;
+        border-radius: 8px;
+        margin-top: 8px;
         .el-card__body {
           .text {
             text-align: left;
+          }
+        }
+        .el-form {
+          .el-form-item__content {
+            text-align: left!important;
           }
         }
       }
@@ -74,9 +90,6 @@ export default {
       .item {
         margin-bottom: 18px;
       }
-    }
-    #step-3 {
-      margin-top: 16px;
     }
 }
   .steps {

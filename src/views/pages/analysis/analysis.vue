@@ -41,8 +41,8 @@
       <div class="line-chart">
         <div class="card">
           <div class="card-head">
-            <h6>峰值信噪比</h6>
-            <el-tooltip class="item" effect="dark" content="各模型的平均峰值信噪比" placement="top">
+            <h6>平均峰值信噪比</h6>
+            <el-tooltip class="item" effect="dark" content="各模型在放大两倍情况下的平均峰值信噪比" placement="top">
               <i class="el-icon-question"></i>
             </el-tooltip>
           </div>
@@ -50,8 +50,8 @@
         </div>
         <div class="card">
           <div class="card-head">
-            <h6>结构相似性</h6>
-            <el-tooltip class="item" effect="dark" content="各模型的平均结构相似性" placement="top">
+            <h6>平均结构相似性</h6>
+            <el-tooltip class="item" effect="dark" content="各模型在放大两倍情况下的平均结构相似性" placement="top">
               <i class="el-icon-question"></i>
             </el-tooltip>
           </div>
@@ -120,13 +120,13 @@ export default {
             mychart.setOption({
                 xAxis: {
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model1', 'model2']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [{
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    data: [36.66, 36.87, 37.33, 37.69, 37.77, 37.54, 37.65],
                     type: 'line'
                 }],
                 grid: {
@@ -141,13 +141,13 @@ export default {
             mychart.setOption({
                 xAxis: {
                     type: 'category',
-                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model1', 'model2']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [{
-                    data: [820, 932, 901, 934, 1290, 1330, 1320],
+                    data: [0.9452, 0.9521, 0.9543, 0.9573, 0.9575, 0.9561, 0.9546],
                     type: 'line'
                 }],
                 grid: {
