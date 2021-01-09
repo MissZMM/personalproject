@@ -9,7 +9,7 @@
               </el-tooltip>
             </div>
             <div class="card-body">
-              <div class="num">+6</div>
+              <div class="num">+3</div>
               <div ref="dataChart" class="Chart"></div>
             </div>
           </div>
@@ -120,13 +120,13 @@ export default {
             mychart.setOption({
                 xAxis: {
                     type: 'category',
-                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model1', 'model2']
+                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model-1']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [{
-                    data: [36.66, 36.87, 37.33, 37.69, 37.77, 37.54, 37.65],
+                    data: [36.66, 36.87, 37.33, 37.69, 37.77, 37.54],
                     type: 'line'
                 }],
                 grid: {
@@ -141,13 +141,13 @@ export default {
             mychart.setOption({
                 xAxis: {
                     type: 'category',
-                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model1', 'model2']
+                    data: ['SRCNN', 'FSRCNN', 'VDSR', 'method01', 'method02', 'model-1']
                 },
                 yAxis: {
                     type: 'value'
                 },
                 series: [{
-                    data: [0.9452, 0.9521, 0.9543, 0.9573, 0.9575, 0.9561, 0.9546],
+                    data: [0.9452, 0.9521, 0.9543, 0.9573, 0.9575, 0.9561],
                     type: 'line'
                 }],
                 grid: {

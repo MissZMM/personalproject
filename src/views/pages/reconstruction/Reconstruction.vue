@@ -282,9 +282,12 @@ export default {
       }
       .line {
         width: 1px;
-        height: 50px;
+        height: 100px;
         background-color: #798798;
         margin-left: 15px;
+      }
+      .line2 {
+        height: 300px;
       }
       .step-1 {}
     }
